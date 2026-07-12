@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900">
+  <rect width="1200" height="900" fill="#0a0a0a"/>
+  <!-- Header bar -->
+  <rect width="1200" height="72" fill="#111111"/>
+  <text x="48" y="46" font-family="Georgia,serif" font-size="28" fill="#f0ece4" letter-spacing="4">FFP</text>
+  <text x="96" y="53" font-family="'Helvetica Neue',sans-serif" font-size="10" fill="#c9a84c" letter-spacing="8">PHOTOGRAPHY</text>
+  <text x="900" y="40" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="#7a746c" letter-spacing="4">HOME</text>
+  <text x="970" y="40" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="#7a746c" letter-spacing="4">PORTFOLIO</text>
+  <text x="1058" y="40" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="#7a746c" letter-spacing="4">ABOUT</text>
+  <rect x="1110" y="25" width="72" height="30" fill="none" stroke="#c9a84c" stroke-width="1"/>
+  <text x="1120" y="45" font-family="'Helvetica Neue',sans-serif" font-size="10" fill="#c9a84c" letter-spacing="2">BOOK</text>
+  <!-- Hero -->
+  <rect y="72" width="1200" height="480" fill="#161616"/>
+  <rect y="72" width="1200" height="480" fill="url(#herograd)"/>
+  <defs>
+    <linearGradient id="herograd" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1409" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#0a0a0a" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+  <text x="600" y="240" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="#c9a84c" letter-spacing="10" text-anchor="middle">FINE ART PHOTOGRAPHY</text>
+  <text x="600" y="310" font-family="Georgia,serif" font-size="72" fill="#ffffff" text-anchor="middle">Capturing</text>
+  <text x="600" y="390" font-family="Georgia,serif" font-size="72" fill="#c9a84c" font-style="italic" text-anchor="middle">Precious</text>
+  <text x="600" y="465" font-family="Georgia,serif" font-size="72" fill="#ffffff" text-anchor="middle">Moments</text>
+  <rect x="438" y="505" width="130" height="36" fill="#c9a84c"/>
+  <text x="503" y="528" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="#0a0a0a" letter-spacing="3" text-anchor="middle">PORTFOLIO</text>
+  <rect x="582" y="505" width="140" height="36" fill="none" stroke="#c9a84c" stroke-width="1"/>
+  <text x="652" y="528" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="#c9a84c" letter-spacing="2" text-anchor="middle">BOOK SESSION</text>
+  <!-- Gallery grid preview -->
+  <rect y="552" width="1200" height="348" fill="#0a0a0a"/>
+  <rect x="4" y="560" width="498" height="200" fill="#1a1409"/>
+  <rect x="506" y="560" width="242" height="96" fill="#091213"/>
+  <rect x="752" y="560" width="192" height="96" fill="#130d09"/>
+  <rect x="948" y="560" width="248" height="96" fill="#0d0d13"/>
+  <rect x="506" y="660" width="242" height="96" fill="#091309"/>
+  <rect x="752" y="660" width="192" height="96" fill="#130913"/>
+  <rect x="948" y="660" width="248" height="96" fill="#09090d"/>
+  <!-- Gallery icons -->
+  <text x="253" y="668" font-family="Georgia,serif" font-size="13" fill="#c9a84c" text-anchor="middle" opacity="0.6">Wedding Photography</text>
+  <text x="627" y="620" font-family="Georgia,serif" font-size="11" fill="#c9a84c" text-anchor="middle" opacity="0.6">Portrait</text>
+  <text x="848" y="620" font-family="Georgia,serif" font-size="11" fill="#c9a84c" text-anchor="middle" opacity="0.6">Engagement</text>
+  <!-- Bottom bar -->
+  <rect y="780" width="1200" height="120" fill="#050505"/>
+  <text x="48" y="840" font-family="Georgia,serif" font-size="18" fill="#c9a84c" letter-spacing="4">FFP</text>
+  <text x="600" y="840" font-family="'Helvetica Neue',sans-serif" font-size="10" fill="#7a746c" letter-spacing="2" text-anchor="middle">� 2025 FFP Photography. All rights reserved.</text>
+</svg>

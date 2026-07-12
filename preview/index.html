@@ -1,0 +1,1118 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FFP Media Films &mdash; Fire Family Production | Videography &amp; Photography</title>
+<meta name="description" content="Fire Family Production Media Films &mdash; Capturing moments, creating legacies. Videography, Photography, Music Videos, Weddings, Commercials &amp; Events.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+:root{
+  --red:#c0392b;--red-l:#e74c3c;--red-d:#922b21;
+  --gold:#b8860b;--gold-l:#d4a017;--gold-d:#8b6914;
+  --accent:#c0392b;--accent-l:#e74c3c;
+  --bg:#ffffff;--bg2:#f7f4f0;--card:#ffffff;--surface:#f0ebe4;
+  --border:#e2d9cf;--white:#fff;--offwhite:#1a1410;
+  --text:#4a4540;--muted:#8a8178;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Montserrat','Helvetica Neue',Arial,sans-serif;
+  --t:300ms ease;--ts:600ms ease;
+}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.7;overflow-x:hidden}
+::selection{background:var(--accent);color:#fff}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:#f0ebe4}::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px}
+a{color:var(--accent);text-decoration:none;transition:color var(--t)}a:hover{color:var(--red-l)}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3,h4{font-family:var(--serif);color:var(--offwhite);line-height:1.15;font-weight:400;letter-spacing:.02em}
+p{margin-bottom:1em}
+
+/* LOADER */
+#loader{position:fixed;inset:0;background:#fff;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;transition:opacity .7s ease,visibility .7s ease}
+#loader.gone{opacity:0;visibility:hidden;pointer-events:none}
+.loader-logo{display:flex;flex-direction:column;align-items:center;gap:.4rem}
+.loader-abbr{font-family:var(--serif);font-size:3.5rem;letter-spacing:.4em;color:var(--accent);background:linear-gradient(90deg,var(--red-d),var(--accent),var(--red-l),var(--accent),var(--red-d));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 2s linear infinite}
+.loader-name{font-family:var(--sans);font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--muted)}
+.loader-bar{width:120px;height:1px;background:var(--border);position:relative;overflow:hidden;margin-top:.5rem}
+.loader-bar::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,var(--accent),transparent);animation:barLoad 1.5s ease infinite}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes barLoad{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+
+/* NAV */
+nav.bar{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;transition:all var(--ts);background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+nav.bar.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(20px);padding:.9rem 3rem;box-shadow:0 2px 20px rgba(0,0,0,.06)}
+.logo{font-family:var(--serif);font-size:1.4rem;color:#1a1410;letter-spacing:.08em;display:flex;flex-direction:column;line-height:1.1;text-decoration:none}
+.logo .logo-full{font-family:var(--sans);font-size:.48rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-top:2px}
+.logo:hover{color:#1a1410}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links a{font-size:.65rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#4a4540;position:relative;transition:color var(--t)}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:100%;height:1px;background:var(--accent);transition:right var(--t)}
+.nav-links a:hover,.nav-links a.active{color:var(--accent)}
+.nav-links a:hover::after,.nav-links a.active::after{right:0}
+.nav-cta{padding:.55rem 1.4rem!important;border:1px solid var(--accent)!important;color:var(--accent)!important;transition:all var(--t)!important}
+.nav-cta:hover{background:var(--accent)!important;color:#fff!important}
+.nav-cta::after{display:none!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:24px;height:1.5px;background:#1a1410;transition:all var(--t);transform-origin:center}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;border:none;cursor:pointer;transition:all var(--t);text-decoration:none;position:relative;overflow:hidden}
+.btn::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,.06);transform:translateX(-100%);transition:transform var(--t)}
+.btn:hover::before{transform:translateX(0)}
+.btn-red{background:var(--accent);color:#fff}
+.btn-red:hover{background:var(--accent-l);color:#fff;box-shadow:0 4px 20px rgba(192,57,43,.3)}
+.btn-gold{background:#1a1410;color:#fff}
+.btn-gold:hover{background:#333;color:#fff}
+.btn-outline{background:transparent;color:#1a1410;border:1px solid #1a1410}
+.btn-outline:hover{background:#1a1410;color:#fff}
+.btn-outline-red{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.btn-outline-red:hover{background:var(--accent);color:#fff}
+.btn-ghost{background:transparent;color:#4a4540;border:1px solid var(--border)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:700px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#000}
+.hero-bg{position:absolute;inset:0;overflow:hidden}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.28);transform:scale(1.06);transition:transform 8s ease}
+.hero-bg img.pan{transform:scale(1)}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.1) 0%,rgba(0,0,0,.05) 40%,rgba(0,0,0,.85) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;padding:2rem;max-width:1000px}
+.hero-badge{display:inline-flex;align-items:center;gap:.6rem;border:1px solid rgba(201,168,76,.4);padding:.4rem 1.2rem;margin-bottom:2rem;opacity:0;animation:fadeUp 1s ease .2s forwards}
+.hero-badge span{font-size:.6rem;font-weight:600;letter-spacing:.35em;text-transform:uppercase;color:var(--gold)}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.hero h1{font-size:clamp(2.8rem,9vw,6.5rem);color:#fff;line-height:1;margin-bottom:.5rem;opacity:0;animation:fadeUp 1s ease .4s forwards}
+.hero h1 .fire{color:var(--accent)}
+.hero h1 .family{font-style:italic;color:rgba(255,255,255,.9)}
+.hero-company{font-family:var(--sans);font-size:.7rem;font-weight:700;letter-spacing:.5em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:2rem;opacity:0;animation:fadeUp 1s ease .6s forwards}
+.hero-tagline{font-family:var(--serif);font-size:clamp(1.1rem,3vw,1.6rem);color:rgba(255,255,255,.9);max-width:620px;margin:0 auto 1rem;line-height:1.5;font-style:italic;opacity:0;animation:fadeUp 1s ease .7s forwards}
+.hero-sub{font-size:.88rem;color:rgba(255,255,255,.75);max-width:520px;margin:0 auto 2.5rem;letter-spacing:.04em;opacity:0;animation:fadeUp 1s ease .85s forwards}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp 1s ease 1s forwards}
+.scroll-hint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:rgba(255,255,255,.6);font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;cursor:pointer;opacity:0;animation:fadeIn 1s ease 1.3s forwards;z-index:2;transition:color var(--t)}
+.scroll-hint:hover{color:#fff}
+.scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,rgba(255,255,255,.7),transparent);animation:pulse 2s ease-in-out infinite}
+
+/* SECTIONS */
+.section{padding:7rem 0}
+.section-dark{background:#ffffff}
+.section-alt{background:#f7f4f0}
+.section-red{background:var(--accent)}
+.container{max-width:1280px;margin:0 auto;padding:0 2rem}
+.container-wide{max-width:1600px;margin:0 auto;padding:0 2rem}
+.container-narrow{max-width:840px;margin:0 auto;padding:0 2rem}
+.text-center{text-align:center}
+.label{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
+.label-red{color:var(--accent)}
+.section-title{font-size:clamp(1.8rem,5vw,3.2rem);margin-bottom:.75rem}
+.section-sub{font-size:1rem;color:var(--muted);max-width:580px;margin:0 auto 3.5rem;line-height:1.85}
+.divider{width:60px;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);margin:.75rem auto 2rem}
+.divider-red{background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+.divider-left{margin-left:0}
+
+/* WHAT WE DO STRIP */
+.wedo-strip{background:#1a1410;padding:1rem 0}
+.wedo-inner{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:2rem}
+.wedo-item{display:flex;align-items:center;gap:.6rem;font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#fff}
+.wedo-dot{width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0}
+
+/* SERVICES GRID */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+.service-cat-title{font-family:var(--sans);font-size:.6rem;font-weight:700;letter-spacing:.35em;text-transform:uppercase;padding:.3rem .8rem;margin-bottom:1.5rem;display:inline-block}
+.service-cat-title.video{background:var(--accent);color:#fff}
+.service-cat-title.photo{background:#1a1410;color:#fff}
+.card{background:#fff;border:1px solid var(--border);padding:2rem;position:relative;overflow:hidden;transition:border-color var(--t),transform var(--t),box-shadow var(--t)}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;opacity:0;transition:opacity var(--t)}
+.card.video-card::before{background:var(--accent)}
+.card.photo-card::before{background:#1a1410}
+.card:hover{transform:translateY(-5px);box-shadow:0 12px 40px rgba(0,0,0,.1)}
+.card.video-card:hover{border-color:rgba(192,57,43,.3)}
+.card.photo-card:hover{border-color:rgba(26,20,16,.2)}
+.card:hover::before{opacity:1}
+.card-icon{font-size:1.5rem;margin-bottom:1rem;display:block}
+.card h3{font-family:var(--sans);font-size:1.05rem;font-weight:700;letter-spacing:.02em;margin-bottom:.6rem;color:#1a1410}
+.card-icon{display:none}
+.card p{font-size:.875rem;color:var(--muted);line-height:1.8;margin-bottom:0}
+
+/* SPLIT LAYOUT (about / what we do) */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.split-img{position:relative}
+.split-img img,.split-img .ph{width:100%;aspect-ratio:4/5;object-fit:cover}
+.split-img .ph{background:linear-gradient(135deg,#e8e2da,#d4cec6);display:flex;align-items:center;justify-content:center;opacity:.6}
+.split-accent{position:absolute;bottom:-18px;right:-18px;width:55%;aspect-ratio:1;border:2px solid var(--accent);z-index:-1;opacity:.25}
+.split-accent-red{border-color:var(--accent);opacity:.2}
+.process-list{list-style:none;padding:0;margin:2rem 0;display:flex;flex-direction:column;gap:1rem}
+.process-item{display:flex;align-items:flex-start;gap:1rem;font-size:.9rem;color:#4a4540}
+.process-num{width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-size:.65rem;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem}
+.process-num.gold{background:#1a1410;color:#fff}
+
+/* PORTFOLIO */
+.portfolio-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:260px;gap:3px}
+.pi{position:relative;overflow:hidden;cursor:pointer}
+.pi:nth-child(1){grid-column:span 8;grid-row:span 2}
+.pi:nth-child(2){grid-column:span 4;grid-row:span 1}
+.pi:nth-child(3){grid-column:span 4;grid-row:span 1}
+.pi:nth-child(4){grid-column:span 4;grid-row:span 1}
+.pi:nth-child(5){grid-column:span 4;grid-row:span 1}
+.pi:nth-child(6){grid-column:span 4;grid-row:span 1}
+.pi img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform var(--ts)}
+.masonry .pi img{width:100%;height:auto;object-fit:unset;object-position:unset;display:block}
+.pi:hover img{transform:scale(1.07)}
+.pi-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,transparent 60%);opacity:0;transition:opacity var(--t);display:flex;align-items:flex-end;padding:1.5rem}
+.pi:hover .pi-overlay{opacity:1}
+.pi-type{display:inline-flex;align-items:center;gap:.4rem;margin-bottom:.4rem}
+.pi-type-dot{width:6px;height:6px;border-radius:50%}
+.pi-type-dot.v{background:var(--accent)}
+.pi-type-dot.p{background:var(--gold)}
+.pi-info h3{font-family:var(--serif);font-size:1.2rem;color:#fff;margin-bottom:.3rem}
+.pi-info span{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.masonry{columns:4;column-gap:6px}
+.masonry .pi{break-inside:avoid;margin-bottom:6px;height:auto}
+.filter-bar{display:flex;align-items:center;justify-content:center;gap:.75rem;flex-wrap:wrap;margin-bottom:3rem}
+.filter-btn{padding:.45rem 1.1rem;font-size:.6rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);background:transparent;border:1px solid transparent;cursor:pointer;transition:all var(--t);font-family:var(--sans)}
+.filter-btn.active,.filter-btn:hover{color:var(--accent);border-color:var(--accent)}
+
+/* STATS BAR */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+.stat-box{background:#fff;padding:2.5rem 2rem;text-align:center}
+.stat-n{font-family:var(--serif);font-size:3rem;color:var(--accent);display:block;line-height:1;margin-bottom:.4rem}
+.stat-n.red{color:#1a1410}
+.stat-l{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted)}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.contact-method{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.5rem}
+.contact-icon{width:44px;height:44px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--accent);font-size:1rem;transition:all var(--t);background:#fff}
+.contact-icon:hover{border-color:var(--accent);background:rgba(192,57,43,.06)}
+.contact-label{font-size:.6rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:.25rem}
+.contact-value{font-size:.95rem;color:#1a1410}
+.contact-value a{color:#1a1410;transition:color var(--t)}
+.contact-value a:hover{color:var(--accent)}
+.wa-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.3);color:#25d366;font-size:.6rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;padding:.25rem .7rem;margin-top:.4rem}
+.social-row{display:flex;gap:.75rem;margin-top:2rem;flex-wrap:wrap}
+.soc-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.1rem;border:1px solid var(--border);font-size:.6rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:#4a4540;transition:all var(--t);background:#fff}
+.soc-btn:hover{border-color:var(--accent);color:var(--accent)}
+.soc-btn.fb:hover{border-color:#1877f2;color:#1877f2}
+.soc-btn.yt:hover{border-color:#ff0000;color:#ff0000}
+.soc-btn.ig:hover{border-color:#e1306c;color:#e1306c}
+.soc-btn.wa:hover{border-color:#25d366;color:#25d366}
+
+/* FORM */
+.form-wrap{background:#fff;border:1px solid var(--border);padding:2.5rem;box-shadow:0 4px 24px rgba(0,0,0,.06)}
+.form-title{font-family:var(--serif);font-size:1.75rem;margin-bottom:.4rem;color:#1a1410}
+.form-sub{font-size:.75rem;color:var(--muted);letter-spacing:.1em;margin-bottom:2rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-group{margin-bottom:1.1rem}
+.form-group label{display:block;font-size:.6rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.45rem}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:#f7f4f0;border:1px solid var(--border);color:#1a1410;padding:.85rem 1rem;font-family:var(--sans);font-size:.875rem;outline:none;transition:border-color var(--t),background var(--t);border-radius:0;-webkit-appearance:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--accent);background:#fff}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--muted)}
+.form-group select option{background:#fff;color:#1a1410}
+.form-group textarea{min-height:110px;resize:vertical}
+.form-submit{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.5rem}
+.form-privacy{font-size:.68rem;color:var(--muted);max-width:240px}
+.form-msg{padding:.875rem 1rem;margin-bottom:1rem;font-size:.85rem;display:none}
+.form-msg.success{background:rgba(37,211,102,.08);border:1px solid rgba(37,211,102,.25);color:#1a7a3a;display:block}
+.form-msg.error{background:rgba(192,57,43,.08);border:1px solid rgba(192,57,43,.25);color:var(--accent);display:block}
+
+/* FOOTER */
+footer{background:#1a1410;border-top:1px solid rgba(255,255,255,.08)}
+.footer-top{padding:5rem 0 3rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:4rem}
+.footer-brand .logo{font-size:1.6rem;margin-bottom:1rem;display:inline-flex;color:#fff!important}
+.footer-brand .logo .logo-full{color:var(--accent)!important}
+.footer-brand p{font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.85;max-width:300px;margin-bottom:1.5rem}
+.footer-col h4{font-family:var(--sans);font-size:.6rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.9);margin-bottom:1.25rem}
+.footer-links{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.55rem}
+.footer-links a{font-size:.875rem;color:rgba(255,255,255,.45);transition:color var(--t)}
+.footer-links a:hover{color:var(--accent)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:1.5rem 0}
+
+/* PAGE SECTIONS */
+.page-section{display:none}
+.page-section.active{display:block}
+.page-hero{padding:140px 0 4.5rem;text-align:center;background:#f7f4f0;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(192,57,43,.05) 0%,transparent 70%);pointer-events:none}
+.page-hero-title{font-size:clamp(2.2rem,6vw,4.5rem)}
+.breadcrumb{display:flex;align-items:center;justify-content:center;gap:.5rem;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem}
+.breadcrumb a{color:var(--muted)}
+.breadcrumb a:hover{color:var(--accent)}
+
+/* LIGHTBOX */
+#lb{position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.96);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all var(--t)}
+#lb.open{opacity:1;visibility:visible}
+.lb-inner{position:relative;max-width:90vw;max-height:90vh;display:flex;flex-direction:column;align-items:center}
+.lb-img{max-width:90vw;max-height:80vh;object-fit:contain;box-shadow:0 24px 64px rgba(0,0,0,.9)}
+.lb-cap{margin-top:1rem;font-family:var(--serif);font-size:1rem;color:var(--text);text-align:center}
+.lb-btn{position:absolute;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all var(--t)}
+.lb-close{top:-48px;right:0;width:40px;height:40px;font-size:1.2rem}
+.lb-prev{top:50%;left:-64px;transform:translateY(-50%);width:48px;height:48px;font-size:1.2rem}
+.lb-next{top:50%;right:-64px;transform:translateY(-50%);width:48px;height:48px;font-size:1.2rem}
+.lb-btn:hover{background:var(--accent);border-color:var(--accent)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pulse{0%,100%{opacity:1;transform:scaleY(1)}50%{opacity:.5;transform:scaleY(.5)}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .split,.contact-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:2.5rem}
+  .stats-bar{grid-template-columns:1fr 1fr}
+  .masonry{columns:2;column-gap:6px}
+  .portfolio-grid{grid-auto-rows:200px}
+  .pi:nth-child(1){grid-column:span 12;grid-row:span 1}
+  .pi:nth-child(n+2){grid-column:span 4}
+}
+@media(max-width:768px){
+  .nav-links{display:none;flex-direction:column;position:fixed;inset:0;background:rgba(255,255,255,.99);z-index:1000;align-items:center;justify-content:center;gap:2.5rem}
+  .nav-links.open{display:flex}
+  .hamburger{display:flex}
+  nav.bar{padding:1rem 1.5rem}
+  .section{padding:4.5rem 0}
+  .form-row{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .masonry{columns:1;column-gap:0}
+  .wedo-inner{gap:1.25rem}
+}
+@media(max-width:480px){
+  .hero-btns{flex-direction:column;align-items:center}
+  .btn{width:100%;justify-content:center}
+  .stats-bar{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo">
+    <span class="loader-abbr">FFP</span>
+    <span class="loader-name">Fire Family Production &middot; Media Films</span>
+    <div class="loader-bar"></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="bar" id="navbar">
+  <a href="#" class="logo" onclick="showPage('home');return false">
+    FFP <em style="font-style:normal;color:var(--accent)">Media</em>
+    <span class="logo-full">Fire Family Production &middot; Media Films</span>
+  </a>
+  <ul class="nav-links" id="navlinks">
+    <li><a href="#" class="active" onclick="showPage('home');return false">Home</a></li>
+    <li><a href="#" onclick="showPage('services');return false">Services</a></li>
+    <li><a href="#" onclick="showPage('portfolio');return false">Portfolio</a></li>
+    <li><a href="#" onclick="showPage('about');return false">About</a></li>
+    <li><a href="#" class="nav-cta" onclick="showPage('contact');return false">Book A Shoot</a></li>
+  </ul>
+  <button class="hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ==================== HOME ==================== -->
+<div id="page-home" class="page-section active">
+
+  <section class="hero">
+    <div class="hero-bg">
+      <img id="herobg" src="https://images.pixieset.com/28846589/b2066bf0208b24978f39804f7dece45c-cover.jpg" alt="FFP Media Films &mdash; Wedding Coverage">
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        <span>Videography &amp; Photography</span>
+        <span class="hero-badge-dot"></span>
+      </div>
+      <h1>
+        <span class="fire">Fire</span> <span class="family">Family</span><br>Production<br>Media Films
+      </h1>
+      <p class="hero-company">FFP Media Films</p>
+      <p class="hero-tagline">"Capturing moments, creating legacies"</p>
+      <p class="hero-sub">We don't just record moments. We tell your story.</p>
+      <div class="hero-btns">
+        <a href="#" class="btn btn-red" onclick="showPage('portfolio');return false">View Our Work</a>
+        <a href="#" class="btn btn-outline" onclick="showPage('contact');return false">Book A Shoot</a>
+      </div>
+    </div>
+    <div class="scroll-hint" onclick="document.getElementById('wedo').scrollIntoView({behavior:'smooth'})">
+      <span>Scroll</span><span class="scroll-line"></span>
+    </div>
+  </section>
+
+  <!-- What We Do Strip -->
+  <div class="wedo-strip">
+    <div class="container">
+      <div class="wedo-inner">
+        <div class="wedo-item">Filming</div>
+        <div class="wedo-dot"></div>
+        <div class="wedo-item">Editing</div>
+        <div class="wedo-dot"></div>
+        <div class="wedo-item">Voice Overs</div>
+        <div class="wedo-dot"></div>
+        <div class="wedo-item">Scripting</div>
+        <div class="wedo-dot"></div>
+        <div class="wedo-item">Talent</div>
+        <div class="wedo-dot"></div>
+        <div class="wedo-item">Media Placement</div>
+        <div class="wedo-dot"></div>
+        <div class="wedo-item">Photography</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- What We Do -->
+  <section class="section section-dark" id="wedo">
+    <div class="container">
+      <div class="split">
+        <div class="split-img">
+          <img src="https://images.pixieset.com/28846589/2266afd2afc66c43eeffaab3816292f5-medium.jpg" alt="FFP Media Films" loading="lazy">
+          <div class="split-accent split-accent-red"></div>
+        </div>
+        <div>
+          <span class="label label-red">What We Do</span>
+          <h2 class="section-title">Start to Finish<br><em style="font-style:italic;color:var(--gold)">Production Services</em></h2>
+          <div class="divider divider-red divider-left"></div>
+          <p>We offer a complete, end-to-end production experience &mdash; from the very first idea to the final screen. No middlemen, no outsourcing. Everything under one roof.</p>
+          <ul class="process-list">
+            <li class="process-item"><span class="process-num">1</span><div><strong style="color:var(--offwhite)">Concepting &amp; Scripting</strong><br>We work with you to develop the concept and write a compelling script tailored to your audience.</div></li>
+            <li class="process-item"><span class="process-num">2</span><div><strong style="color:var(--offwhite)">Filming &amp; Photography</strong><br>Our professional crew captures every moment with cinema-grade equipment and an artistic eye.</div></li>
+            <li class="process-item"><span class="process-num">3</span><div><strong style="color:var(--offwhite)">Talent &amp; Voice Overs</strong><br>We source and direct on-screen talent and professional voice artists for your project.</div></li>
+            <li class="process-item"><span class="process-num gold">4</span><div><strong style="color:var(--offwhite)">Editing &amp; Post-Production</strong><br>Colour grading, sound design, motion graphics &mdash; we deliver a polished final cut.</div></li>
+            <li class="process-item"><span class="process-num gold">5</span><div><strong style="color:var(--offwhite)">Media Placement</strong><br>We get your content seen &mdash; across social media, broadcast, digital, and beyond.</div></li>
+          </ul>
+          <a href="#" class="btn btn-outline-red" onclick="showPage('services');return false">Explore Our Services &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wedding highlight -->
+  <section class="section" style="background:linear-gradient(135deg,#1a1410 0%,#2a2018 60%,#1e1a14 100%)">
+    <div class="container">
+      <div class="split" style="grid-template-columns:1fr 1fr">
+        <div>
+          <span class="label" style="color:var(--accent)">Wedding Specialists</span>
+          <h2 class="section-title" style="color:#fff">Your Wedding Is One of the Most Important Days of Your Life</h2>
+          <div class="divider" style="background:linear-gradient(90deg,transparent,var(--accent),transparent)"></div>
+          <p style="color:rgba(255,255,255,.8)">And we're here to make sure it's nothing short of <strong style="color:#fff">perfect</strong>.</p>
+          <p style="color:rgba(255,255,255,.65)">From the pre-ceremony nerves to the last dance &mdash; our team captures every heartfelt moment, every tear of joy, every stolen glance. The result? A cinematic story that transports you right back to that day, for the rest of your life.</p>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem">
+            <a href="#" class="btn btn-red" onclick="showPage('contact');return false">Book Your Wedding</a>
+            <a href="#" class="btn" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)" onclick="showPage('portfolio');return false">See Wedding Work</a>
+          </div>
+        </div>
+        <div class="split-img">
+          <img src="wedding-couple.png" alt="FFP Wedding Coverage" loading="lazy">
+          <div class="split-accent"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Traditional Wedding Video Feature -->
+  <section class="section section-alt" style="padding:5rem 0">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:3rem">
+        <span class="label label-red">Featured Films</span>
+        <h2 class="section-title" style="margin-top:.5rem">Our Featured Films</h2>
+        <div class="divider divider-red" style="margin:0 auto 1rem"></div>
+        <p style="color:var(--muted);max-width:620px;margin:0 auto">From intimate wedding ceremonies to high-impact commercial productions &mdash; watch our work and experience the FFP difference.</p>
+      </div>
+
+      <!-- Two video cards side by side -->
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;max-width:1100px;margin:0 auto">
+
+        <!-- Card 1: Traditional Wedding -->
+        <div style="border-radius:6px;overflow:hidden;box-shadow:0 16px 48px rgba(0,0,0,.14);background:#fff">
+          <div style="position:relative;cursor:pointer;aspect-ratio:16/9;overflow:hidden" onclick="window.open('https://www.youtube.com/watch?v=ZP7CXGpZ8P8','_blank')">
+            <img src="trad-wedding-thumb.png" alt="Traditional Wedding Film" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .4s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,rgba(0,0,0,.05) 60%);display:flex;align-items:center;justify-content:center">
+              <div style="width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(0,0,0,.3);transition:transform .25s" onmouseover="this.style.transform='scale(1.15)'" onmouseout="this.style.transform='scale(1)'">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><polygon points="6,3 21,12 6,21" fill="#c0392b"/></svg>
+              </div>
+            </div>
+            <div style="position:absolute;top:.75rem;left:.75rem;background:var(--accent);color:#fff;font-family:var(--sans);font-size:.5rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:.3rem .7rem;border-radius:2px">Traditional</div>
+          </div>
+          <div style="padding:1.25rem 1.5rem 1.5rem">
+            <h3 style="font-family:var(--serif);font-size:1.15rem;color:#1a1410;margin:0 0 .4rem;font-weight:600">Traditional Wedding Coverage</h3>
+            <p style="color:var(--muted);font-size:.85rem;line-height:1.6;margin:0 0 1.1rem">A vibrant celebration of culture, colour &amp; love &mdash; captured from every heartfelt moment.</p>
+            <a href="https://www.youtube.com/watch?v=ZP7CXGpZ8P8" target="_blank" rel="noopener noreferrer" class="btn btn-red" style="font-size:.6rem;padding:.55rem 1.2rem">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="margin-right:.35rem"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.95C18.88 4 12 4 12 4s-6.88 0-8.59.47a2.78 2.78 0 0 0-1.95 1.95C1 8.12 1 12 1 12s0 3.88.46 5.58a2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95C23 15.88 23 12 23 12s0-3.88-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+              Watch on YouTube
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2: White Wedding -->
+        <div style="border-radius:6px;overflow:hidden;box-shadow:0 16px 48px rgba(0,0,0,.14);background:#fff">
+          <div style="position:relative;cursor:pointer;aspect-ratio:16/9;overflow:hidden" onclick="window.open('https://www.youtube.com/watch?v=zenToyR0-iI','_blank')">
+            <img src="white-wedding-thumb.png" alt="White Wedding Film" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .4s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,rgba(0,0,0,.05) 60%);display:flex;align-items:center;justify-content:center">
+              <div style="width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(0,0,0,.3);transition:transform .25s" onmouseover="this.style.transform='scale(1.15)'" onmouseout="this.style.transform='scale(1)'">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><polygon points="6,3 21,12 6,21" fill="#c0392b"/></svg>
+              </div>
+            </div>
+            <div style="position:absolute;top:.75rem;left:.75rem;background:#2c3e50;color:#fff;font-family:var(--sans);font-size:.5rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:.3rem .7rem;border-radius:2px">White Wedding</div>
+          </div>
+          <div style="padding:1.25rem 1.5rem 1.5rem">
+            <h3 style="font-family:var(--serif);font-size:1.15rem;color:#1a1410;margin:0 0 .4rem;font-weight:600">Ivanna &amp; Liam &mdash; Official Wedding 2025</h3>
+            <p style="color:var(--muted);font-size:.85rem;line-height:1.6;margin:0 0 1.1rem">An elegant white wedding ceremony filled with tears of joy, laughter &amp; unforgettable vows.</p>
+            <a href="https://www.youtube.com/watch?v=zenToyR0-iI" target="_blank" rel="noopener noreferrer" class="btn btn-red" style="font-size:.6rem;padding:.55rem 1.2rem">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="margin-right:.35rem"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.95C18.88 4 12 4 12 4s-6.88 0-8.59.47a2.78 2.78 0 0 0-1.95 1.95C1 8.12 1 12 1 12s0 3.88.46 5.58a2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95C23 15.88 23 12 23 12s0-3.88-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+              Watch on YouTube
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3: Birthday Event -->
+        <div style="border-radius:6px;overflow:hidden;box-shadow:0 16px 48px rgba(0,0,0,.14);background:#fff">
+          <div style="position:relative;cursor:pointer;aspect-ratio:16/9;overflow:hidden" onclick="window.open('https://www.youtube.com/watch?v=itQtvvnYTlc','_blank')">
+            <img src="birthday-thumb.png" alt="Birthday Event Film" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .4s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,rgba(0,0,0,.05) 60%);display:flex;align-items:center;justify-content:center">
+              <div style="width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(0,0,0,.3);transition:transform .25s" onmouseover="this.style.transform='scale(1.15)'" onmouseout="this.style.transform='scale(1)'">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><polygon points="6,3 21,12 6,21" fill="#c0392b"/></svg>
+              </div>
+            </div>
+            <div style="position:absolute;top:.75rem;left:.75rem;background:#8e44ad;color:#fff;font-family:var(--sans);font-size:.5rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:.3rem .7rem;border-radius:2px">Birthday</div>
+          </div>
+          <div style="padding:1.25rem 1.5rem 1.5rem">
+            <h3 style="font-family:var(--serif);font-size:1.15rem;color:#1a1410;margin:0 0 .4rem;font-weight:600">Birthday Celebration Coverage</h3>
+            <p style="color:var(--muted);font-size:.85rem;line-height:1.6;margin:0 0 1.1rem">A beautifully styled birthday celebration captured with elegance &mdash; every milestone moment, every emotion, forever remembered.</p>
+            <a href="https://www.youtube.com/watch?v=itQtvvnYTlc" target="_blank" rel="noopener noreferrer" class="btn btn-red" style="font-size:.6rem;padding:.55rem 1.2rem">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="margin-right:.35rem"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.95C18.88 4 12 4 12 4s-6.88 0-8.59.47a2.78 2.78 0 0 0-1.95 1.95C1 8.12 1 12 1 12s0 3.88.46 5.58a2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95C23 15.88 23 12 23 12s0-3.88-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+              Watch on YouTube
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 4: Commercial -->
+        <div style="border-radius:6px;overflow:hidden;box-shadow:0 16px 48px rgba(0,0,0,.14);background:#fff">
+          <div style="position:relative;cursor:pointer;aspect-ratio:16/9;overflow:hidden" onclick="window.open('https://www.youtube.com/watch?v=m0nb3anyDok','_blank')">
+            <img src="commercial-koi-thumb.png" alt="WCB Koi Show Commercial" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .4s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,rgba(0,0,0,.05) 60%);display:flex;align-items:center;justify-content:center">
+              <div style="width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(0,0,0,.3);transition:transform .25s" onmouseover="this.style.transform='scale(1.15)'" onmouseout="this.style.transform='scale(1)'">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><polygon points="6,3 21,12 6,21" fill="#c0392b"/></svg>
+              </div>
+            </div>
+            <div style="position:absolute;top:.75rem;left:.75rem;background:#1a6b3a;color:#fff;font-family:var(--sans);font-size:.5rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:.3rem .7rem;border-radius:2px">Commercial</div>
+          </div>
+          <div style="padding:1.25rem 1.5rem 1.5rem">
+            <h3 style="font-family:var(--serif);font-size:1.15rem;color:#1a1410;margin:0 0 .4rem;font-weight:600">WCB Koi Show 2025</h3>
+            <p style="color:var(--muted);font-size:.85rem;line-height:1.6;margin:0 0 1.1rem">Professional commercial coverage of WCB Imports Fishroom International Koi Show 2025 &mdash; showcasing our event videography expertise.</p>
+            <a href="https://www.youtube.com/watch?v=m0nb3anyDok" target="_blank" rel="noopener noreferrer" class="btn btn-red" style="font-size:.6rem;padding:.55rem 1.2rem">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="margin-right:.35rem"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.95C18.88 4 12 4 12 4s-6.88 0-8.59.47a2.78 2.78 0 0 0-1.95 1.95C1 8.12 1 12 1 12s0 3.88.46 5.58a2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95C23 15.88 23 12 23 12s0-3.88-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+              Watch on YouTube
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom CTA -->
+      <div style="text-align:center;margin-top:2.5rem">
+        <a href="#" class="btn btn-outline-red" onclick="showPage('booking');return false">Book A Shoot</a>
+      </div>
+    </div>
+  </section>
+  <!-- Stats -->
+  <div class="stats-bar">
+    <div class="stat-box reveal"><span class="stat-n red">500+</span><span class="stat-l">Projects Delivered</span></div>
+    <div class="stat-box reveal"><span class="stat-n">8+</span><span class="stat-l">Years Experience</span></div>
+    <div class="stat-box reveal"><span class="stat-n red">100%</span><span class="stat-l">Client Satisfaction</span></div>
+    <div class="stat-box reveal"><span class="stat-n">40+</span><span class="stat-l">Industry Awards</span></div>
+  </div>
+
+  <!-- Portfolio preview -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="text-center">
+        <span class="label">Our Work</span>
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="divider"></div>
+        <p class="section-sub">A glimpse into the stories we've told. Click any image to see it in full.</p>
+      </div>
+            <div class="portfolio-grid" id="home-gallery">
+        <div class="pi" data-src="g11.png" data-cap="Bridal Party - FFP Media Films">
+          <img src="g11.png" alt="Bridal Party" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top center">
+          <div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Bridal Party</h3><span>Wedding Coverage</span></div></div>
+        </div>
+        <div class="pi" data-src="g01.png" data-cap="Bridal Portrait - FFP Media Films">
+          <img src="g01.png" alt="Bridal Portrait" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top center">
+          <div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Bridal Portrait</h3><span>Wedding Coverage</span></div></div>
+        </div>
+        <div class="pi" data-src="g20.png" data-cap="Love Story - FFP Media Films">
+          <img src="g20.png" alt="Love Story" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top center">
+          <div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Love Story</h3><span>Wedding Coverage</span></div></div>
+        </div>
+        <div class="pi" data-src="g07.png" data-cap="First Dance - FFP Media Films">
+          <img src="g07.png" alt="First Dance" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top center">
+          <div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>First Dance</h3><span>Wedding Coverage</span></div></div>
+        </div>
+        <div class="pi" data-src="g09.png" data-cap="Outdoor Portrait - FFP Media Films">
+          <img src="g09.png" alt="Outdoor Portrait" loading="lazy" style="width:100%;height:100%;object-fit:cover">
+          <div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Outdoor Portrait</h3><span>Photography</span></div></div>
+        </div>
+        <div class="pi" data-src="g21.png" data-cap="Traditional Wedding - FFP Media Films">
+          <img src="g21.png" alt="Traditional Wedding" loading="lazy" style="width:100%;height:100%;object-fit:cover">
+          <div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Traditional Wedding</h3><span>Wedding Coverage</span></div></div>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top:3rem">
+        <a href="#" class="btn btn-outline" onclick="showPage('portfolio');return false">View Full Portfolio &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /home -->
+
+<!-- ==================== SERVICES ==================== -->
+<div id="page-services" class="page-section">
+  <div class="page-hero" style="background:none;padding:0;border-bottom:none">
+    <div style="position:relative;min-height:460px;display:flex;align-items:center;justify-content:center;overflow:hidden">
+      <img src="services-hero.png" alt="FFP Media Films &mdash; Wedding Coverage" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top">
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.45) 100%)"></div>
+      <div class="container" style="position:relative;z-index:2;padding-top:120px;padding-bottom:4rem;text-align:center">
+        <div class="breadcrumb" style="color:rgba(255,255,255,.55)"><a href="#" onclick="showPage('home');return false" style="color:rgba(255,255,255,.55)">Home</a><span>/</span><span>Services</span></div>
+        <span class="label" style="color:rgba(255,255,255,.75);margin-bottom:1rem">What We Offer</span>
+        <h1 class="page-hero-title" style="color:#fff;font-size:clamp(2.5rem,7vw,5rem)">Our Services</h1>
+        <div class="divider" style="background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent)"></div>
+        <p class="section-sub" style="color:rgba(255,255,255,.8);margin-bottom:0">Complete production services from concept to screen &mdash; and stunning photography for every milestone.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Videography -->
+  <section class="section section-dark">
+    <div class="container">
+      <div style="margin-bottom:2.5rem">
+        <span class="service-cat-title video">Videography Services</span>
+        <h2 class="section-title">Video Production</h2>
+        <div class="divider divider-red divider-left"></div>
+      </div>
+      <div class="services-grid">
+        <article class="card video-card reveal">
+          <h3>Wedding Coverage</h3>
+          <p>Your wedding day, told as a cinematic love story. Full-day filming, multi-camera setup, drone footage, and a beautifully edited highlight film plus full ceremony video.</p>
+        </article>
+        <article class="card video-card reveal">
+          <h3>Music Videos</h3>
+          <p>From concept to final cut &mdash; creative direction, location scouting, professional lighting, and cinema-grade production to bring your sound to life visually.</p>
+        </article>
+        <article class="card video-card reveal">
+          <h3>Commercials &amp; Ads</h3>
+          <p>High-impact commercial video for brands, products, and businesses. We handle scripting, talent, filming, and media placement to maximise your reach.</p>
+        </article>
+        <article class="card video-card reveal">
+          <h3>Event Coverage</h3>
+          <p>Corporate events, galas, conferences, launches, birthdays &mdash; professional multi-camera event documentation with same-day highlight reels available.</p>
+        </article>
+        <article class="card video-card reveal">
+          <h3>Voice Overs &amp; Talent</h3>
+          <p>Professional voice artists and on-screen talent sourced and directed for your project &mdash; from documentary narration to commercial presenters.</p>
+        </article>
+        <article class="card video-card reveal">
+          <h3>Media Placement</h3>
+          <p>We don't just make the content &mdash; we get it seen. Social media, digital advertising, broadcast, and streaming distribution strategies tailored to your goals.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photography -->
+  <section class="section section-alt">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-bottom:3.5rem">
+        <div>
+          <span class="service-cat-title photo">Photography Services</span>
+          <h2 class="section-title">Photography</h2>
+          <div class="divider divider-left"></div>
+          <p style="color:var(--muted);line-height:1.85">From intimate wedding portraits to milestone celebrations &mdash; we capture every emotion, every detail, every story worth remembering. Our photography is timeless, elegant, and deeply personal.</p>
+        </div>
+        <div style="position:relative">
+          <img src="photo-wedding-couple.png" alt="FFP Photography &mdash; Wedding Couple" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;border-radius:2px;box-shadow:0 16px 48px rgba(0,0,0,.12)">
+          <div style="position:absolute;bottom:-12px;left:-12px;width:100%;height:100%;border:2px solid var(--accent);border-radius:2px;z-index:-1;opacity:.25"></div>
+        </div>
+      </div>
+      <div class="services-grid">
+        <article class="card photo-card reveal">
+          <h3>Wedding Coverage</h3>
+          <p>From bridal prep to the send-off &mdash; every precious moment captured with elegance, emotion, and an eye for the details that make your day unique.</p>
+        </article>
+        <article class="card photo-card reveal">
+          <h3>Birthday Party</h3>
+          <p>Capture the joy, laughter, and energy of your celebration. Professional party photography for all ages &mdash; from first birthdays to milestone milestones.</p>
+        </article>
+        <article class="card photo-card reveal">
+          <h3>Maternity Shoot</h3>
+          <p>Beautiful, intimate maternity portraits that celebrate this extraordinary chapter. Studio or outdoor, styled to your taste.</p>
+        </article>
+        <article class="card photo-card reveal">
+          <h3>Graduation Shoot</h3>
+          <p>Mark your achievement with professional graduation photography. On-campus or creative location sessions &mdash; memories to treasure for life.</p>
+        </article>
+        <article class="card photo-card reveal">
+          <h3>Engagement Shoot</h3>
+          <p>Celebrate your love before the big day with a relaxed, romantic engagement session. Perfect for save-the-dates and getting comfortable in front of the camera.</p>
+        </article>
+        <article class="card photo-card reveal">
+          <h3>And More…</h3>
+          <p>Corporate headshots, family portraits, product photography, newborn sessions &mdash; get in touch to discuss your vision and we'll make it happen.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark" style="padding-block:4rem">
+    <div class="container text-center">
+      <h2 style="font-size:clamp(1.6rem,4vw,2.5rem);margin-bottom:1rem">Ready to Create Something Incredible?</h2>
+      <p style="color:var(--muted);max-width:480px;margin:0 auto 2rem">Contact us today and let's discuss how we can tell your story.</p>
+      <a href="#" class="btn btn-red" onclick="showPage('contact');return false">Get In Touch</a>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== PORTFOLIO ==================== -->
+<div id="page-portfolio" class="page-section">
+  <div class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="#" onclick="showPage('home');return false">Home</a><span>/</span><span>Portfolio</span></div>
+      <span class="label label-red">FFP Media Films</span>
+      <h1 class="page-hero-title">Our Portfolio</h1>
+      <div class="divider divider-red"></div>
+    </div>
+  </div>
+
+  <!-- Portfolio intro -->
+  <div style="background:var(--bg2);border-bottom:1px solid var(--border);padding:3rem 0">
+    <div class="container-narrow text-center">
+      <p style="font-family:var(--serif);font-size:1.2rem;color:var(--offwhite);line-height:1.7;font-style:italic">
+        "Welcome to our portfolio of professional production work. As industry-leading experts in video production and photography, we're here to take you on a visual journey through the success stories of our clients."
+      </p>
+      <p style="font-size:.875rem;color:var(--muted);margin-top:1rem">Be prepared for an immersive experience where business and art merge to create compelling narratives that inspire and engage.</p>
+    </div>
+  </div>
+
+  <section class="section section-dark">
+    <div class="container-wide">
+      <div class="filter-bar">
+        <button class="filter-btn active" data-f="all">All Work</button>
+        <button class="filter-btn" data-f="wedding">Weddings</button>
+        <button class="filter-btn" data-f="music">Music Videos</button>
+        <button class="filter-btn" data-f="commercial">Commercials</button>
+        <button class="filter-btn" data-f="event">Events</button>
+        <button class="filter-btn" data-f="photo">Photography</button>
+      </div>
+      <div class="masonry" id="masonry">
+        <div class="pi" data-cat="wedding" data-src="g01.png" data-cap="Bride — FFP Media Films"><img src="g01.png" alt="Bride" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Bridal Portrait</h3><span>Wedding Coverage</span></div></div></div>
+        <div class="pi" data-cat="wedding" data-src="g02.png" data-cap="Wedding Family — FFP Media Films"><img src="g02.png" alt="Wedding Family" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Wedding Family</h3><span>Wedding Coverage</span></div></div></div>
+        <div class="pi" data-cat="wedding" data-src="g03.png" data-cap="Groom — FFP Media Films"><img src="g03.png" alt="Groom" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Groom Portrait</h3><span>Wedding Coverage</span></div></div></div>
+        <div class="pi" data-cat="photo" data-src="g04.png" data-cap="Green Gown — FFP Media Films"><img src="g04.png" alt="Green Gown" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Evening Portrait</h3><span>Photography</span></div></div></div>
+        <div class="pi" data-cat="wedding" data-src="g05.png" data-cap="Groomsmen — FFP Media Films"><img src="g05.png" alt="Groomsmen" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Groomsmen</h3><span>Wedding Coverage</span></div></div></div>
+        <div class="pi" data-cat="wedding" data-src="g06.png" data-cap="Bridesmaids — FFP Media Films"><img src="g06.png" alt="Bridesmaids" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Bridesmaids</h3><span>Wedding Coverage</span></div></div></div>
+        <div class="pi" data-cat="wedding" data-src="g07.png" data-cap="First Dance — FFP Media Films"><img src="g07.png" alt="First Dance" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>First Dance</h3><span>Wedding Coverage</span></div></div></div>
+        <div class="pi" data-cat="photo" data-src="g08.png" data-cap="Purple Elegance — FFP Media Films"><img src="g08.png" alt="Purple Elegance" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Purple Elegance</h3><span>Photography</span></div></div></div>
+        <div class="pi" data-cat="photo" data-src="g09.png" data-cap="White Dress — FFP Media Films"><img src="g09.png" alt="White Dress" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Outdoor Portrait</h3><span>Photography</span></div></div></div>
+        <div class="pi" data-cat="photo" data-src="g10.png" data-cap="Bouquet — FFP Media Films"><img src="g10.png" alt="Bouquet" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Bouquet Session</h3><span>Photography</span></div></div></div>
+        <div class="pi" data-cat="wedding" data-src="g11.png" data-cap="Bridal Party — FFP Media Films"><img src="g11.png" alt="Bridal Party" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Bridal Party</h3><span>Wedding Coverage</span></div></div></div>
+        <div class="pi" data-cat="wedding" data-src="g12.png" data-cap="Couple — FFP Media Films"><img src="g12.png" alt="Couple" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Couple Portrait</h3><span>Wedding Coverage</span></div></div></div>
+        <div class="pi" data-cat="wedding" data-src="g13.png" data-cap="Newlyweds — FFP Media Films"><img src="g13.png" alt="Newlyweds" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Newlyweds</h3><span>Wedding Coverage</span></div></div></div>
+        <div class="pi" data-cat="wedding" data-src="g14.png" data-cap="Groom Portrait — FFP Media Films"><img src="g14.png" alt="Groom Portrait" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Groom Portrait</h3><span>Wedding Coverage</span></div></div></div>
+        <div class="pi" data-cat="wedding" data-src="g15.png" data-cap="Ladies — FFP Media Films"><img src="g15.png" alt="Ladies" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Wedding Party</h3><span>Wedding Coverage</span></div></div></div>
+        <div class="pi" data-cat="wedding" data-src="g16.png" data-cap="Together — FFP Media Films"><img src="g16.png" alt="Together" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Together</h3><span>Wedding Coverage</span></div></div></div>
+        <div class="pi" data-cat="wedding" data-src="g17.png" data-cap="Bride Smile — FFP Media Films"><img src="g17.png" alt="Bride Smile" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Bride Portrait</h3><span>Wedding Coverage</span></div></div></div>
+        <div class="pi" data-cat="wedding" data-src="g18.png" data-cap="Bridal Beauty — FFP Media Films"><img src="g18.png" alt="Bridal Beauty" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Bridal Beauty</h3><span>Wedding Coverage</span></div></div></div>
+        <div class="pi" data-cat="wedding" data-src="g19.png" data-cap="Walking Together — FFP Media Films"><img src="g19.png" alt="Walking Together" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Walking Together</h3><span>Wedding Coverage</span></div></div></div>
+        <div class="pi" data-cat="wedding" data-src="g20.png" data-cap="Love Story — FFP Media Films"><img src="g20.png" alt="Love Story" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Love Story</h3><span>Wedding Coverage</span></div></div></div>
+        <div class="pi" data-cat="wedding" data-src="g21.png" data-cap="Traditional — FFP Media Films"><img src="g21.png" alt="Traditional" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Traditional Wedding</h3><span>Wedding Coverage</span></div></div></div>
+        <div class="pi" data-cat="photo" data-src="g22.png" data-cap="Lakeside — FFP Media Films"><img src="g22.png" alt="Lakeside" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Lakeside Portrait</h3><span>Photography</span></div></div></div>
+        <div class="pi" data-cat="photo" data-src="g23.png" data-cap="Burgundy Lakeside — FFP Media Films"><img src="g23.png" alt="Burgundy Lakeside" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Burgundy Portrait</h3><span>Photography</span></div></div></div>
+        <div class="pi" data-cat="photo" data-src="g24.png" data-cap="Garden Elegance — FFP Media Films"><img src="g24.png" alt="Garden Elegance" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Garden Elegance</h3><span>Photography</span></div></div></div>
+        <div class="pi" data-cat="wedding" data-src="g25.png" data-cap="Wedding Couple — FFP Media Films"><img src="g25.png" alt="Wedding Couple" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Wedding Couple</h3><span>Wedding Coverage</span></div></div></div>
+        <div class="pi" data-cat="wedding" data-src="g26.png" data-cap="Smiling Couple — FFP Media Films"><img src="g26.png" alt="Smiling Couple" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Smiling Couple</h3><span>Wedding Coverage</span></div></div></div>
+        <div class="pi" data-cat="wedding" data-src="g27.png" data-cap="Romantic Moment — FFP Media Films"><img src="g27.png" alt="Romantic Moment" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Romantic Moment</h3><span>Wedding Coverage</span></div></div></div>
+        <div class="pi" data-cat="wedding" data-src="g28.png" data-cap="Wedding Party — FFP Media Films"><img src="g28.png" alt="Wedding Party" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Wedding Party</h3><span>Wedding Coverage</span></div></div></div>
+        <div class="pi" data-cat="photo" data-src="g29.png" data-cap="Couple Outdoors — FFP Media Films"><img src="g29.png" alt="Couple Outdoors" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Couple Outdoors</h3><span>Photography</span></div></div></div>
+        <div class="pi" data-cat="photo" data-src="g30.png" data-cap="Family Portrait — FFP Media Films"><img src="g30.png" alt="Family Portrait" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Family Portrait</h3><span>Photography</span></div></div></div>
+        <div class="pi" data-cat="photo" data-src="g31.png" data-cap="Two Friends — FFP Media Films"><img src="g31.png" alt="Two Friends" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Friends Portrait</h3><span>Photography</span></div></div></div>
+        <div class="pi" data-cat="photo" data-src="g32.png" data-cap="Green Session — FFP Media Films"><img src="g32.png" alt="Green Session" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Outdoor Session</h3><span>Photography</span></div></div></div>
+        <div class="pi" data-cat="photo" data-src="g33.png" data-cap="Red Jersey — FFP Media Films"><img src="g33.png" alt="Red Jersey" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Lifestyle Portrait</h3><span>Photography</span></div></div></div>
+        <div class="pi" data-cat="photo" data-src="g34.png" data-cap="Joy — FFP Media Films"><img src="g34.png" alt="Joy" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Joy</h3><span>Photography</span></div></div></div>
+        <div class="pi" data-cat="photo" data-src="g35.png" data-cap="Playful — FFP Media Films"><img src="g35.png" alt="Playful" loading="lazy" style="width:100%;height:100%;object-fit:cover"><div class="pi-overlay"><div class="pi-info"><div class="pi-type"><span class="pi-type-dot p"></span><span style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#fff">Photo</span></div><h3>Playful Portrait</h3><span>Photography</span></div></div></div>
+      </div>
+      </div>
+      <div class="text-center" style="margin-top:3rem">
+        <a href="#" class="btn btn-red" onclick="showPage('contact');return false">Book A Shoot</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== ABOUT ==================== -->
+<div id="page-about" class="page-section">
+  <div class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="#" onclick="showPage('home');return false">Home</a><span>/</span><span>About</span></div>
+      <span class="label label-red">Our Story</span>
+      <h1 class="page-hero-title">Fire Family Production Media Films</h1>
+      <div class="divider divider-red"></div>
+    </div>
+  </div>
+  <section class="section section-dark">
+    <div class="container">
+      <div class="split">
+        <div class="split-img">
+          <img src="about-owner.png" alt="FFP Media Films &mdash; Our Story" loading="lazy" style="object-position:top center">
+          <div class="split-accent split-accent-red"></div>
+        </div>
+        <div>
+          <span class="label label-red">Who We Are</span>
+          <h2 class="section-title">FFP Media Films</h2>
+          <div class="divider divider-red divider-left"></div>
+          <p style="font-family:var(--serif);font-size:1.15rem;color:var(--offwhite);line-height:1.7;margin-bottom:1.5rem;font-style:italic">"We don't just record moments. We tell your story."</p>
+          <p>Fire Family Production Media Films is a full-service production company dedicated to capturing the moments that matter most &mdash; and transforming them into timeless visual stories.</p>
+          <p>From intimate weddings and personal portraits to high-energy music videos and brand commercials, we approach every project with the same dedication: flawless craft, genuine care, and a relentless pursuit of the perfect frame.</p>
+          <p>Our team brings together years of industry experience, professional-grade equipment, and an unwavering passion for storytelling. Whether you're a brand, an artist, or a family &mdash; your story is worth telling beautifully.</p>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem">
+            <a href="#" class="btn btn-red" onclick="showPage('contact');return false">Work With Us</a>
+            <a href="#" class="btn btn-outline" onclick="showPage('portfolio');return false">View Portfolio</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="stats-bar">
+    <div class="stat-box"><span class="stat-n red">8+</span><span class="stat-l">Years in Business</span></div>
+    <div class="stat-box"><span class="stat-n">500+</span><span class="stat-l">Projects Completed</span></div>
+    <div class="stat-box"><span class="stat-n red">100%</span><span class="stat-l">Satisfied Clients</span></div>
+    <div class="stat-box"><span class="stat-n">2</span><span class="stat-l">Locations Served</span></div>
+  </div>
+</div>
+
+<!-- ==================== CONTACT ==================== -->
+<div id="page-contact" class="page-section">
+  <div class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="#" onclick="showPage('home');return false">Home</a><span>/</span><span>Contact</span></div>
+      <span class="label label-red">Get In Touch</span>
+      <h1 class="page-hero-title">Contact &amp; Booking</h1>
+      <div class="divider divider-red"></div>
+      <p class="section-sub">Ready to tell your story? Reach out &mdash; we'd love to hear about your project.</p>
+    </div>
+  </div>
+
+  <section class="section section-dark">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Contact Details -->
+        <div>
+          <span class="label label-red">FFP Media Films</span>
+          <h2 class="section-title">Let's Connect</h2>
+          <div class="divider divider-red divider-left"></div>
+          <p>We&apos;re available by phone, WhatsApp, email, and across all social platforms. Don&apos;t hesitate to reach out &mdash; we respond quickly!</p>
+
+          <!-- Phone -->
+          <div class="contact-method">
+            <div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.15 4.87 2 2 0 0 1 3.12 2.7h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 10.1a16 16 0 0 0 6.29 6.29l1.42-1.42a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17z"/></svg></div>
+            <div>
+              <div class="contact-label">Phone &amp; WhatsApp</div>
+              <div class="contact-value">
+                <a href="tel:+27752302010">075 230 2010</a><br>
+                <a href="tel:+27688650838">068 865 0838</a>
+              </div>
+              <div class="wa-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                WhatsApp Available
+              </div>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="contact-method">
+            <div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value"><a href="mailto:tynashemuchayakanye@gmail.com">tynashemuchayakanye@gmail.com</a></div>
+            </div>
+          </div>
+
+          <!-- Social -->
+          <div style="margin-top:2rem">
+            <div class="contact-label" style="margin-bottom:1rem">Follow &amp; Connect</div>
+            <div class="social-row">
+              <a href="https://www.facebook.com/share/14eqimMAL8P/" target="_blank" rel="noopener noreferrer" class="soc-btn fb">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                Facebook
+              </a>
+              <a href="https://youtube.com/@firefamilyproductionmediaf273?si=zsBlHGIpB1ZWus5_" target="_blank" rel="noopener noreferrer" class="soc-btn yt">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.95C18.88 4 12 4 12 4s-6.88 0-8.59.47a2.78 2.78 0 0 0-1.95 1.95C1 8.12 1 12 1 12s0 3.88.46 5.58a2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95C23 15.88 23 12 23 12s0-3.88-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+                YouTube
+              </a>
+              <a href="https://www.instagram.com/tynashemuchayakane?igsh=MW9wMTFmdTdnYmYzMg==" target="_blank" rel="noopener noreferrer" class="soc-btn ig">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                Instagram
+              </a>
+              <a href="https://wa.me/27752302010" target="_blank" rel="noopener noreferrer" class="soc-btn wa">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Booking Form -->
+        <div class="form-wrap">
+          <h3 class="form-title">Book A Shoot</h3>
+          <p class="form-sub">Tell us about your vision &mdash; we&apos;ll be in touch within 24 hours</p>
+          <div class="form-msg" id="contact-msg"></div>
+          <form id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group"><label>Your Name *</label><input type="text" name="name" required placeholder="Jane Smith"></div>
+              <div class="form-group"><label>Phone / WhatsApp *</label><input type="tel" name="phone" required placeholder="075 230 2010"></div>
+            </div>
+            <div class="form-group"><label>Email Address *</label><input type="email" name="email" required placeholder="you@example.com"></div>
+            <div class="form-group">
+              <label>Service Required *</label>
+              <select name="service" required>
+                <option value="" disabled selected>Select a service</option>
+                <optgroup label="Videography">
+                  <option>Wedding Video Coverage</option>
+                  <option>Music Video Production</option>
+                  <option>Commercial / Advertisement</option>
+                  <option>Event Video Coverage</option>
+                  <option>Voice Over / Talent</option>
+                  <option>Media Placement</option>
+                </optgroup>
+                <optgroup label="Photography">
+                  <option>Wedding Photography</option>
+                  <option>Birthday Party Photography</option>
+                  <option>Maternity Shoot</option>
+                  <option>Graduation Shoot</option>
+                  <option>Engagement Shoot</option>
+                  <option>Portrait Session</option>
+                </optgroup>
+                <option>Both Video &amp; Photography</option>
+                <option>Other &mdash; Let&apos;s Discuss</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Event / Project Date</label><input type="date" name="event_date" min="2026-07-10"></div>
+              <div class="form-group"><label>Location / Venue</label><input type="text" name="location" placeholder="City or venue name"></div>
+            </div>
+            <div class="form-group"><label>Tell Us About Your Project *</label><textarea name="message" rows="4" required placeholder="Describe your vision, style, special requirements, references..."></textarea></div>
+            <div class="form-group">
+              <label>Preferred Contact Method</label>
+              <select name="contact_pref">
+                <option value="">Any</option>
+                <option>WhatsApp</option>
+                <option>Phone Call</option>
+                <option>Email</option>
+              </select>
+            </div>
+            <div class="form-submit">
+              <p class="form-privacy">We'll never share your details. Response within 24 hours.</p>
+              <button type="submit" class="btn btn-red"><span class="btn-text">Send Message &rarr;</span></button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER (shared) -->
+<footer>
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo" onclick="showPage('home');return false">
+            FFP <em style="font-style:normal;color:var(--accent)">Media</em>
+            <span class="logo-full">Fire Family Production &middot; Media Films</span>
+          </a>
+          <p>Capturing moments, creating legacies. Full-service videography and photography &mdash; from concept to screen.</p>
+          <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+            <a href="https://www.facebook.com/share/14eqimMAL8P/" target="_blank" rel="noopener noreferrer" class="soc-btn fb" style="font-size:.55rem;padding:.5rem .9rem">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg> FB
+            </a>
+            <a href="https://youtube.com/@firefamilyproductionmediaf273?si=zsBlHGIpB1ZWus5_" target="_blank" rel="noopener noreferrer" class="soc-btn yt" style="font-size:.55rem;padding:.5rem .9rem">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.95C18.88 4 12 4 12 4s-6.88 0-8.59.47a2.78 2.78 0 0 0-1.95 1.95C1 8.12 1 12 1 12s0 3.88.46 5.58a2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95C23 15.88 23 12 23 12s0-3.88-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg> YT
+            </a>
+            <a href="https://www.instagram.com/tynashemuchayakane?igsh=MW9wMTFmdTdnYmYzMg==" target="_blank" rel="noopener noreferrer" class="soc-btn ig" style="font-size:.55rem;padding:.5rem .9rem">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> IG
+            </a>
+            <a href="https://wa.me/27752302010" target="_blank" rel="noopener noreferrer" class="soc-btn wa" style="font-size:.55rem;padding:.5rem .9rem;color:#25d366;border-color:#25d366">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WA
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul class="footer-links">
+            <li><a href="#" onclick="showPage('home');return false">Home</a></li>
+            <li><a href="#" onclick="showPage('services');return false">Services</a></li>
+            <li><a href="#" onclick="showPage('portfolio');return false">Portfolio</a></li>
+            <li><a href="#" onclick="showPage('about');return false">About Us</a></li>
+            <li><a href="#" onclick="showPage('contact');return false">Book A Shoot</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="tel:+27752302010">075 230 2010</a></li>
+            <li><a href="tel:+27688650838">068 865 0838</a></li>
+            <li><a href="https://wa.me/27752302010" target="_blank" rel="noopener noreferrer" style="color:#25d366">WhatsApp Us</a></li>
+            <li style="margin-top:.5rem"><a href="mailto:tynashemuchayakanye@gmail.com">tynashemuchayakanye<br>@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+      <p style="font-size:.75rem;color:rgba(255,255,255,.35)">&copy; 2026 Fire Family Production Media Films. All rights reserved.</p>
+      <p style="font-size:.75rem;color:rgba(255,255,255,.35)">FFP Media Films &nbsp;·&nbsp; Capturing moments, creating legacies</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div id="lb">
+  <div class="lb-inner">
+    <button class="lb-btn lb-close" id="lb-close">&times;</button>
+    <img class="lb-img" id="lb-img" src="" alt="">
+    <button class="lb-btn lb-prev" id="lb-prev">&#8592;</button>
+    <button class="lb-btn lb-next" id="lb-next">&#8594;</button>
+    <p class="lb-cap" id="lb-cap"></p>
+  </div>
+</div>
+
+<script>
+/* PAGE SWITCHER */
+function showPage(id){
+  document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  document.querySelectorAll('.nav-links a').forEach(a=>{
+    const map={home:'home',services:'services',portfolio:'portfolio',about:'about',contact:'book'};
+    a.classList.toggle('active',a.textContent.trim().toLowerCase().includes(map[id]||id));
+  });
+  document.getElementById('navlinks').classList.remove('open');
+  document.getElementById('ham').classList.remove('open');
+  document.body.style.overflow='';
+  setTimeout(initReveal,120);
+}
+
+/* LOADER */
+window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('loader').classList.add('gone');},900);});
+setTimeout(()=>document.getElementById('loader').classList.add('gone'),3500);
+
+/* NAV SCROLL */
+window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>80);},{passive:true});
+
+/* HERO BG */
+setTimeout(()=>{const b=document.getElementById('herobg');if(b)b.classList.add('pan');},200);
+
+/* HAMBURGER */
+document.getElementById('ham').addEventListener('click',function(){
+  const nl=document.getElementById('navlinks');
+  const open=nl.classList.toggle('open');
+  this.classList.toggle('open',open);
+  document.body.style.overflow=open?'hidden':'';
+});
+
+/* LIGHTBOX */
+let lbItems=[],lbIdx=0;
+function openLb(items,i){lbItems=items;lbIdx=i;showLbItem(i);document.getElementById('lb').classList.add('open');document.body.style.overflow='hidden';}
+function closeLb(){document.getElementById('lb').classList.remove('open');document.body.style.overflow='';}
+function showLbItem(i){
+  const it=lbItems[i];if(!it)return;
+  document.getElementById('lb-img').src=it.src;
+  document.getElementById('lb-cap').textContent=it.cap||'';
+  document.getElementById('lb-prev').style.visibility=i===0?'hidden':'visible';
+  document.getElementById('lb-next').style.visibility=i===lbItems.length-1?'hidden':'visible';
+  lbIdx=i;
+}
+document.getElementById('lb-close').onclick=closeLb;
+document.getElementById('lb').addEventListener('click',e=>{if(e.target===document.getElementById('lb'))closeLb();});
+document.getElementById('lb-prev').onclick=()=>{if(lbIdx>0)showLbItem(lbIdx-1);};
+document.getElementById('lb-next').onclick=()=>{if(lbIdx<lbItems.length-1)showLbItem(lbIdx+1);};
+document.addEventListener('keydown',e=>{
+  if(!document.getElementById('lb').classList.contains('open'))return;
+  if(e.key==='Escape')closeLb();
+  if(e.key==='ArrowLeft')document.getElementById('lb-prev').click();
+  if(e.key==='ArrowRight')document.getElementById('lb-next').click();
+});
+function bindGallery(id){
+  const c=document.getElementById(id);if(!c)return;
+  const items=[...c.querySelectorAll('.pi[data-src]')];
+  items.forEach((el,i)=>el.addEventListener('click',()=>openLb(items.map(n=>({src:n.dataset.src,cap:n.dataset.cap})),i)));
+}
+bindGallery('home-gallery');
+bindGallery('masonry');
+
+/* PORTFOLIO FILTER */
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    this.classList.add('active');
+    const f=this.dataset.f;
+    document.querySelectorAll('#masonry .pi').forEach(pi=>{
+      pi.style.display=(f==='all'||pi.dataset.cat===f)?'':'none';
+    });
+  });
+});
+
+/* FORMS */
+function handleForm(formId,msgId){
+  const form=document.getElementById(formId);
+  const msg=document.getElementById(msgId);
+  if(!form||!msg)return;
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    const req=form.querySelectorAll('[required]');
+    let ok=true;
+    req.forEach(f=>{f.style.borderColor='';if(!f.value.trim()){f.style.borderColor='#c0392b';ok=false;}});
+    if(!ok){msg.className='form-msg error';msg.textContent='âš  Please fill in all required fields.';msg.style.display='block';msg.scrollIntoView({behavior:'smooth',block:'nearest'});return;}
+    const btn=form.querySelector('[type="submit"]');
+    const txt=btn&&btn.querySelector('.btn-text');
+    if(btn)btn.disabled=true;
+    if(txt)txt.textContent='Sending...';
+    msg.style.display='none';
+    setTimeout(()=>{
+      msg.className='form-msg success';
+      msg.textContent='âœ“ Message received! We\'ll contact you within 24 hours. You can also reach us on WhatsApp: 075 230 2010';
+      msg.style.display='block';
+      form.reset();
+      if(btn)btn.disabled=false;
+      if(txt)txt.textContent='Send Message &rarr;';
+      msg.scrollIntoView({behavior:'smooth',block:'nearest'});
+    },1200);
+  });
+}
+handleForm('contact-form','contact-msg');
+
+/* SCROLL REVEAL */
+function initReveal(){
+  const els=document.querySelectorAll('.reveal:not(.visible)');
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);obs.unobserve(e.target);}});
+  },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(el=>obs.observe(el));
+}
+initReveal();
+</script>
+</body>
+</html>
+
+
+
