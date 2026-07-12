@@ -288,18 +288,24 @@ footer{background:#1a1410;border-top:1px solid rgba(255,255,255,.08)}
   .stats-bar{grid-template-columns:1fr 1fr}
 }
 
-/* BOOK A SHOOT IMAGE SECTION */
-.book-photo-hero{position:relative;width:100%;height:600px;border-radius:12px;margin-bottom:3rem;overflow:hidden}
-.book-photo-hero img{width:100%;height:100%;object-fit:cover;object-position:center 32%;display:block}
-.book-photo-hero .phone-overlay{
+/* BOOK A SHOOT SPLIT LAYOUT */
+.book-contact-split{display:flex;gap:3rem;align-items:flex-start}
+.book-photo-sidebar{flex:0 0 320px;position:relative}
+.book-photo-sidebar img{width:100%;height:auto;border-radius:12px;display:block;box-shadow:0 8px 32px rgba(0,0,0,.15)}
+.book-photo-sidebar .phone-overlay{
   position:absolute;
-  top:26%;left:31%;
-  width:38%;height:7%;
-  background:rgba(108,86,50,0.98);
+  top:27%;left:28%;
+  width:44%;height:5%;
+  background:rgba(108,86,50,0.97);
   display:flex;align-items:center;justify-content:center;
   border-radius:4px;
-  font-family:var(--sans);font-weight:800;font-size:clamp(.65rem,1.5vw,1.05rem);
+  font-family:var(--sans);font-weight:800;font-size:clamp(.5rem,1vw,.8rem);
   letter-spacing:.15em;color:#fff;text-transform:uppercase
+}
+.book-contact-main{flex:1;min-width:0}
+@media(max-width:900px){
+  .book-contact-split{flex-direction:column}
+  .book-photo-sidebar{flex:none;width:100%;max-width:380px;margin:0 auto 2rem}
 }</style>
 </head>
 <body>
@@ -872,13 +878,17 @@ footer{background:#1a1410;border-top:1px solid rgba(255,255,255,.08)}
 
   <section class="section section-dark">
     <div class="container">
-      <!-- Book A Shoot Photo -->
-      <div class="book-photo-hero">
-        <img src="book-shoot-hero.png" alt="Book a shoot with FFP Media Films">
-        <div class="phone-overlay">FFP Media</div>
-      </div>
+      <div class="book-contact-split">
 
-      <div class="contact-grid">
+        <!-- Image Sidebar -->
+        <div class="book-photo-sidebar">
+          <img src="book-shoot-hero.png" alt="Book a shoot with FFP Media Films">
+          <div class="phone-overlay">FFP Media</div>
+        </div>
+
+        <!-- Contact Content -->
+        <div class="book-contact-main">
+        <div class="contact-grid">
 
         <!-- Contact Details -->
         <div>
@@ -992,7 +1002,9 @@ footer{background:#1a1410;border-top:1px solid rgba(255,255,255,.08)}
           </form>
         </div>
 
-      </div>
+      </div><!-- /contact-grid -->
+        </div><!-- /book-contact-main -->
+      </div><!-- /book-contact-split -->
     </div>
   </section>
 </div>
